@@ -32,7 +32,8 @@ pipeline {
                         }
                         stage('Integration test') {
                         agent {
-                                docker {
+                                withDockerRegistry([credentialsId: "pinky"])
+				     {
                                         reuseNode false
 					image 'ubuntu'
                                         }
